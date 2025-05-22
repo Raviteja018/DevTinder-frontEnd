@@ -37,7 +37,7 @@ export default function Body() {
     <div>
       <Navbar />
       <Outlet />
-      {userData && <Footer />}
+      {/* {userData && <Footer />} */}
     </div>
   );
 }
