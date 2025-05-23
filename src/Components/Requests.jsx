@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function Requests() {
   const requests = useSelector(store => store.requests);
+  // console.log(requests)
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -62,21 +63,21 @@ export default function Requests() {
       {/* Display Cards */}
       {!loading && !error && requests.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-          {requests.map((req) => (
+          {requests?.map((req) => (
             <div
               key={req._id}
               className="bg-gray-800 text-white rounded-xl shadow-lg p-4 w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300"
             >
               <img
-                src={req.fromUserId.photoUrl }
-                alt={req.fromUserId.firstName}
+                src={req?.fromUserId?.photoUrl }
+                alt={req?.fromUserId?.firstName}
                 className="w-full h-48 object-cover rounded-md mb-4"
               />
               <div className="text-xl font-semibold mb-2">
-                {req.fromUserId.firstName}
+                {req.fromUserId?.firstName}
               </div>
               <p className="text-sm text-gray-400 mt-3">
-                {req.fromUserId.about || 'No bio available.'}
+                {req.fromUserId?.about || 'No bio available.'}
               </p>
               <div className="flex justify-between mt-4">
       <button

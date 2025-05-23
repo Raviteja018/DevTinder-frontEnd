@@ -61,7 +61,7 @@ export default function Connections() {
       {/* Display Cards */}
       {!loading && !error && connections.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-          {connections.map((conn) => (
+          {connections?.filter(conn => conn && conn._id).map((conn) => (
             <div
               key={conn._id}
               className="bg-gray-800 text-white rounded-xl shadow-lg p-4 w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300"
